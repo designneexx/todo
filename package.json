@@ -1,0 +1,86 @@
+{
+  "name": "todo_app",
+  "version": "1.0.0",
+  "description": "React Todo task app",
+  "scripts": {
+    "build": "webpack --config webpack.config.js --mode production",
+    "start": "webpack-dev-server --config webpack.config.js --mode development --open --hot --devtool source-map",
+    "lint": "eslint --fix --quiet src/**/*.{ts,tsx,js}"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx}": [
+      "eslint --fix"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "keywords": [
+    "react",
+    "typescript",
+    "webpack"
+  ],
+  "author": "webmasterondesign@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "antd": "^4.5.4",
+    "immutability-helper": "^3.1.1",
+    "mobx": "^5.15.5",
+    "mobx-react-lite": "^2.0.7",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "shortid": "^2.2.15",
+    "styled-components": "^5.1.1"
+  },
+  "devDependencies": {
+    "@types/immutability-helper": "^2.6.3",
+    "@types/react": "^16.8.24",
+    "@types/react-dom": "^16.0.5",
+    "@types/shortid": "0.0.29",
+    "@types/styled-components": "^5.1.2",
+    "@types/webpack": "4.1.4",
+    "@typescript-eslint/eslint-plugin": "^3.9.0",
+    "@typescript-eslint/parser": "^3.9.0",
+    "autoprefixer": "^9.8.6",
+    "css-loader": "^4.2.1",
+    "eslint": "^7.7.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-compat": "^3.8.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.20.6",
+    "eslint-plugin-sonarjs": "^0.5.0",
+    "esnext": "^3.3.1",
+    "file-loader": "^6.0.0",
+    "html-webpack-plugin": "^4.3.0",
+    "postcss-loader": "^3.0.0",
+    "prettier": "^2.0.5",
+    "style-loader": "^1.2.1",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.4.3",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.11.0"
+  }
+}
