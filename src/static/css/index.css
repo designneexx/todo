@@ -1,12 +1,3 @@
-*, *:before, *:after, *::placeholder, *:focus {
-  margin: 0;
-  padding: 0;
-  border: none;
-  box-sizing: border-box;
-  outline: none;
-  font-family: 'Montserrat', sans-serif;
-}
-
 body {
   min-height: 100vh;
   background-color: #fafafa;
