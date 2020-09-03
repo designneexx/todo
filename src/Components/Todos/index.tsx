@@ -38,14 +38,13 @@ export const Todos: FC = observer(() => {
   const store = useLocalStore<{
     todos: TodoI[];
     flatTodos: TodoI[];
-    setTodos(todos: TodoI[]): void;
   }>(() => ({
     todos: [],
     get flatTodos(): TodoI[] {
-      const getFlatTodos = (mTodos: TodoI[]) => {
+      const getFlatTodos = (myTodos: TodoI[]) => {
         const currentTodos: TodoI[] = [];
 
-        mTodos.forEach(({ todos: deepTodos, ...todo }) => {
+        myTodos.forEach(({ todos: deepTodos, ...todo }) => {
           currentTodos.push({ todos: deepTodos, ...todo }, ...getFlatTodos(deepTodos));
         });
 
@@ -54,14 +53,12 @@ export const Todos: FC = observer(() => {
 
       return getFlatTodos(store.todos).filter(({ level }) => level < 3);
     },
-    setTodos(todos) {
-      store.todos = todos;
-    },
   }));
-  const { todos, setTodos, flatTodos } = store;
+  const { todos, flatTodos } = store;
 
   const handleDelete = useCallback((currentTodo: TodoI, currentTodos: TodoI[]) => {
     const currentIdx = currentTodos.findIndex((todo) => todo === currentTodo);
+
     if (currentIdx !== -1) {
       setDeleteTodo({
         index: currentIdx,
@@ -110,16 +107,13 @@ export const Todos: FC = observer(() => {
         level: parentTodo.level + 1,
       });
     } else {
-      setTodos([
-        ...todos,
-        {
-          id: shortid(),
-          isPerform: false,
-          todos: [],
-          text: todoText,
-          level: 1,
-        },
-      ]);
+      todos.push({
+        id: shortid(),
+        isPerform: false,
+        todos: [],
+        text: todoText,
+        level: 1,
+      });
     }
 
     onCancel();
