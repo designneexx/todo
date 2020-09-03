@@ -41,14 +41,14 @@ export const Todo: FC<TodoProps> = observer(({ todo, todos, onDelete, onPerform,
     (e: MouseEvent<HTMLElement>) => {
       onDelete(todo, todos, e);
     },
-    [onDelete],
+    [onDelete, todo, todos],
   );
 
   const handlePerform = useCallback(
     (e: CheckboxChangeEvent) => {
       onPerform(todo, todos, e);
     },
-    [onPerform],
+    [onPerform, todo, todos],
   );
 
   return (
